@@ -10,7 +10,7 @@ export const SendMoney=()=>{
    <div className="flex flex-col justify-center">
   <div className=" w-96 h-fit  bg-white rounded px-3">
   <Heading label={"Send Money"} ></Heading>
-   <div className="pt-7"><Username></Username></div>
+   <div className="pt-7"><Username type={"green"}></Username></div>
    <InputBox label={"Amount (in Rs)"}></InputBox>
    <div className="pt-4 pb-4 text-center "> 
    <button

@@ -6,9 +6,11 @@ import {
 import { Signup } from "./pages/Signup";
 import { Signin } from "./pages/Signin";
 import { SendMoney } from "./pages/SendMoney";
+import { Dashboard } from "./pages/Dashboard";
 
 function App() {
-
+ 
+ 
   return (
     <>
     
@@ -18,7 +20,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}></Route>
       <Route path="/signin" element={<Signin />}></Route>
       <Route path="/SendMoney" element={<SendMoney/>}></Route>
-      <Route></Route>
+      <Route path="/Dashboard" element={<Dashboard/>}></Route>
 
     </Routes>
     </BrowserRouter>
