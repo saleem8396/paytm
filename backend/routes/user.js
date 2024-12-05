@@ -53,14 +53,15 @@ router.post("/signup",async(req,res)=>{
 })
 
 router.post("/signin",async (req,res)=>{
-    const {success}=userBodysigninSchema.safeParse(req.body);
+    console.log(req.body)
+    const {success}=userBodysigninSchema.safeParse(req.body)
 
     if(!success){
         return res.status(411).json({
-            message: "Error while logging in"
+            message: "not a valid data"
         })
     }
-
+    console.log("passed the zod validation")
     const existingUser=await User.findOne({
         userName:req.body.userName,
         password:req.body.password
