@@ -1,6 +1,6 @@
 const mongo = require("mongoose")
 
-mongo.connect("mongodb://saleem:saleem8396@localhost:27017/paytm?authSource=admin")
+mongo.connect("mongodb://localhost:27017")
 
 
 const userSchema = new mongo.Schema({

@@ -85,14 +85,14 @@ router.post("/signin",async (req,res)=>{
 
 router.put("/",userAuthMiddleware,async (req,res)=>{
 
-    console.log(req.body)
+    // console.log(req.body)
     const {success}=userDataChangeSchema.safeParse(req.body);
     if(!success){
         return res.status(411).json({
             msg:"invalid data"
         })
     }
-    console.log(req.userId)
+    
     const updatedUser=await User.updateOne({
         _id:req.userId
 
@@ -110,7 +110,7 @@ router.put("/",userAuthMiddleware,async (req,res)=>{
     })
 })
 
-router.get("/bulk",async(req,res)=>{
+router.get("/bulk",userAuthMiddleware,async(req,res)=>{
     const filter=req.query.filter|| "";
     const {success}=stringSchema.safeParse(filter);
     if(!success){
@@ -137,9 +137,13 @@ router.get("/bulk",async(req,res)=>{
             msg:"no user found"
         })
     }
+    
+
+    const filteredUser=users.filter(e=>e._id!=req.userId);
+    
 
     res.json({
-        users:users.map((user)=>{
+        users:filteredUser.map((user)=>{
             return {
                 firstName:user.firstName,
                 lastName:user.lastName,

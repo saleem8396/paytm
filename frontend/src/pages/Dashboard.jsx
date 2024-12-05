@@ -12,6 +12,6 @@ export const Dashboard=()=>{
        <Balance value={"200"}></Balance> 
        <Users></Users>
        
-    </div>
+    </div> 
 
 }
