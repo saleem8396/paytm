@@ -5,11 +5,13 @@ import { Button } from "../components/Button"
 import { Heading } from "../components/Heading"
 import { InputBox } from "../components/InputBox"
 import { SubHeading } from "../components/SubHeading"
+import { useNavigate } from "react-router-dom"
 
 
 export const Signin=()=>{
     const [userName,setUserName]=useState("");
     const [password,setPassword]=useState("");
+    const navigate=useNavigate();
     
     return <div className="flex justify-center  bg-slate-300 h-screen">
         <div className="flex flex-col justify-center">
@@ -27,6 +29,7 @@ export const Signin=()=>{
             password
         }).then((response)=>{
             localStorage.setItem("token",response.data.token)
+            navigate("/dashboard")
         })
        }}></Button>
        </div>

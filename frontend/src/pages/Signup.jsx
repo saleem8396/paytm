@@ -5,6 +5,7 @@ import { BottomWarning } from "../components/BottomWarning";
 import { Button } from "../components/Button";
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Signup = () => {
 
@@ -12,6 +13,7 @@ export const Signup = () => {
   const[lastName,setLastName]=useState("");
   const[email,setEmail]=useState("");
   const[password,setPassword]=useState("");
+  const navigate=useNavigate();
 
   
   return (
@@ -36,6 +38,7 @@ export const Signup = () => {
           })
           console.log(response.data.token)
           localStorage.setItem("token",response.data.token)
+          navigate("/dashboard")
         }} ></Button>
       </div>
       <BottomWarning label={"Already have an account?"} buttonText={" Sign in"} to={"/signin"} ></BottomWarning>
